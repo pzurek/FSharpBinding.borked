@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<Template Originator   = "Piotr Zurek"
+          Language     = "F#"
+          Created      = "21/07/2009"
+          LastModified = "21/07/2009">
+          
+	<TemplateConfiguration>
+		<_Name>Empty Signature File</_Name>
+		<Icon>md-text-file-icon</Icon>
+		<_Category>General</_Category>
+		<LanguageName>F#</LanguageName>
+		<_Description>Creates an empty F# signature file.</_Description>
+	</TemplateConfiguration>
+	
+	<TemplateFiles>
+		<File DefaultExtension=".fsi"
+		      DefaultName="EmptyFSharpfile"
+		      AddStandardHeader="False">
+		<![CDATA[
+// Turn on the lightweight syntax
+#light
+]]>
+		</File>
+	</TemplateFiles>
+	<FileOptions/>
+</Template>
