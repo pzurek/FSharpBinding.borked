@@ -33,6 +33,15 @@ namespace FSharpBinding
 {
 	public class FSharpBindingCompilerManager
 	{
+		static void AddOption (StringBuilder sb, string option, string val)
+		{
+			sb.Append ('"');
+			sb.Append (option);
+			sb.Append (val);
+			sb.Append ('"');
+			sb.AppendLine ();
+		}
+
 		public static BuildResult Compile (ProjectItemCollection projectItems,
 		                                   DotNetProjectConfiguration configuration,
 		                                   IProgressMonitor monitor)
