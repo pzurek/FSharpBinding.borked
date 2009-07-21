@@ -54,6 +54,7 @@
   <ItemGroup>
     <Folder Include="Project\" />
     <Folder Include="Templates\" />
+    <Folder Include="Icons\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -65,10 +66,14 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <None Include="FSharpBinding.addin.xml" />
-    <None Include="Templates\EmptyFSharpFile.xft.xml" />
-    <None Include="Templates\EmptyFSharpSignatureFile.xft.xml" />
-    <None Include="Templates\EmprtyFSharpProject.xft.xml" />
-    <None Include="Templates\GtkSharpProject.xft.xml" />
+    <None Include="Icons\fsharp-file-16.png" />
+    <None Include="Icons\fsharp-project-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FSharpBinding.addin.xml" />
+    <EmbeddedResource Include="Templates\EmptyFSharpFile.xft.xml" />
+    <EmbeddedResource Include="Templates\EmptyFSharpSignatureFile.xft.xml" />
+    <EmbeddedResource Include="Templates\EmprtyFSharpProject.xft.xml" />
+    <EmbeddedResource Include="Templates\GtkSharpProject.xft.xml" />
   </ItemGroup>
 </Project>
