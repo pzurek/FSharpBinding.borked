@@ -30,11 +30,8 @@ using MonoDevelop.Projects;
 
 namespace FSharpBinding
 {
-	
-	
 	public class FSharpProjectParameters : ProjectParameters
-	{
-		
+	{		
 		public FSharpProjectParameters()
 		{
 		}
