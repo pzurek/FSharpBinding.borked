@@ -63,4 +63,7 @@
       </Properties>
     </MonoDevelop>
   </ProjectExtensions>
+  <ItemGroup>
+    <None Include="FSharpBinding.addin.xml" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,49 @@
+<Addin id          = "FSharpBinding"
+       namespace   = "MonoDevelop"
+       name        = "FSharp Language Binding"
+       author      = "Piotr Zurek"
+       copyright   = "MIT X11"
+       url         = "http://wiki.github.com/pzurek/FSharpBinding"
+       description = "FSharp Language Binding"
+	   category    = "Language bindings"
+       version     = "2.0">
+	
+	<Dependencies>
+		<Addin id="Core" version="2.0"/>
+		<Addin id="Core.Gui" version="2.0"/>
+		<Addin id="Projects" version="2.0"/>
+		<Addin id="Projects.Gui" version="2.0"/>
+		<Addin id="Ide" version="2.0"/>
+	</Dependencies>
+	
+	<Extension path = "/MonoDevelop/Ide/FileFilters">
+		<FileFilter id = "FSharp"
+		            insertbefore="AllFiles"
+		            _label = "F# Files"
+                    extensions = "*.fs"/>
+		<FileFilter id = "FSharpI"
+		            insertbefore="AllFiles"
+		            _label = "F# Signature Files"
+                    extensions = "*.fsi"/>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/ProjectModel/LanguageBindings">
+		<LanguageBinding id    = "FSharp"
+		                 supportedextensions = ".fs,.fsi,"
+		                 class = "FSharpBinding.FSharpLanguageBinding" />
+	</Extension>
+	
+	<Extension path = "/MonoDevelop/ProjectModel/SerializableClasses">
+		<DataType class = "FSharpBinding.FSharpCompilerParameters" />
+		<DataType class = "FSharpBinding.FSharpProjectParameters" />
+	</Extension>
+
+	<Extension path = "/MonoDevelop/Core/MimeTypes">
+		<MimeType id="text/x-fsharp" _description="F# implementation file" icon="md-fsharp-file" isText="true">
+			<File pattern="*.fs" />
+		</MimeType>
+		<MimeType id="text/x-fsharp" _description="F# signature file" icon="md-fsharp-file" isText="true">
+			<File pattern="*.fsi" />
+		</MimeType>
+	</Extension>
+</Addin>
