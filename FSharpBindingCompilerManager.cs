@@ -48,5 +48,12 @@ namespace FSharpBinding
 		{
 			return new BuildResult();
 		}
+		static string GetCompilerName() {
+			//HACK: for the moment there is only one compiler available and
+			//assumption is made that the system is cofigured to recognize fsc
+			//as a valid command.
+			return "fsc";
+		}
+
 	}
 }
