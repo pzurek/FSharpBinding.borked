@@ -25,9 +25,13 @@
 // THE SOFTWARE.
 
 using System;
+using System.IO;
+using System.Text;
+using System.Text.RegularExpressions;
 
 using MonoDevelop.Core;
 using MonoDevelop.Projects;
+//using MonoDevelop.Core.
 
 namespace FSharpBinding
 {
@@ -42,12 +46,14 @@ namespace FSharpBinding
 			sb.AppendLine ();
 		}
 
+		
 		public static BuildResult Compile (ProjectItemCollection projectItems,
 		                                   DotNetProjectConfiguration configuration,
 		                                   IProgressMonitor monitor)
 		{
 			return new BuildResult();
 		}
+
 		static string GetCompilerName() {
 			//HACK: for the moment there is only one compiler available and
 			//assumption is made that the system is cofigured to recognize fsc
@@ -55,5 +61,82 @@ namespace FSharpBinding
 			return "fsc";
 		}
 
+		static BuildResult ParseOut (string stdout, string stderr)
+		{
+			BuildResult result = new BuildResult ();
+			
+			StringBuilder compilerOutput = new StringBuilder ();
+			bool typeLoadException = false;
+			foreach (string s in new string[] { stdout, stderr }) {
+				StreamReader sr = File.OpenText (s);
+				while (true) {
+					if (typeLoadException) {
+						compilerOutput.Append (sr.ReadToEnd ());
+						break;
+					}
+					string curLine = sr.ReadLine();
+					compilerOutput.AppendLine (curLine);
+					
+					if (curLine == null) 
+						break;
+					
+					curLine = curLine.Trim();
+					if (curLine.Length == 0) 
+						continue;
+					
+					if (curLine.StartsWith ("Unhandled Exception: System.TypeLoadException") || 
+					    curLine.StartsWith ("Unhandled Exception: System.IO.FileNotFoundException")) {
+						//result.ClearErrors (); - something apparently not supported by this version of MD
+						typeLoadException = true;
+					}
+					
+					BuildError error = CreateErrorFromString (curLine);
+					
+					if (error != null)
+						result.Append (error);
+				}
+				sr.Close();
+			}
+			if (typeLoadException) {
+				Regex reg  = new Regex (@".*WARNING.*used in (mscorlib|System),.*", RegexOptions.Multiline);
+				if (reg.Match (compilerOutput.ToString ()).Success)
+					result.AddError ("", 0, 0, "", "Error: A referenced assembly may be built with an incompatible CLR version. See the compilation output for more details.");
+				else
+					result.AddError ("", 0, 0, "", "Error: A dependency of a referenced assembly may be missing, or you may be referencing an assembly created with a newer CLR version. See the compilation output for more details.");
+			}
+			result.CompilerOutput = compilerOutput.ToString ();
+			return result;
+		}
+
+		static Regex regexError = new Regex (@"^(\s*(?<file>.*)\((?<line>\d*)(,(?<column>\d*[\+]*))?\)(:|)\s+)*(?<level>\w+)\s*(?<number>.*\d):\s*(?<message>.*)", RegexOptions.Compiled | RegexOptions.ExplicitCapture);
+		
+		static BuildError CreateErrorFromString (string error_string)
+		{
+			// When IncludeDebugInformation is true, prevents the debug symbols stats from braeking this.
+			if (error_string.StartsWith ("WROTE SYMFILE") ||
+			    error_string.StartsWith ("OffsetTable") ||
+			    error_string.StartsWith ("Compilation succeeded") ||
+			    error_string.StartsWith ("Compilation failed"))
+				return null;
+			
+			Match match = regexError.Match(error_string);
+			if (!match.Success) 
+				return null;
+			
+			BuildError error = new BuildError ();
+			error.FileName = match.Result ("${file}") ?? "";
+			
+			string line = match.Result ("${line}");
+			error.Line = !string.IsNullOrEmpty (line) ? Int32.Parse (line) : 0;
+			
+			string col = match.Result ("${column}");
+			if (!string.IsNullOrEmpty (col)) 
+				error.Column = col == "255+" ? -1 : Int32.Parse (col);
+			
+			error.IsWarning   = match.Result ("${level}") == "warning";
+			error.ErrorNumber = match.Result ("${number}");
+			error.ErrorText   = match.Result ("${message}");
+			return error;
+		}	
 	}
 }
