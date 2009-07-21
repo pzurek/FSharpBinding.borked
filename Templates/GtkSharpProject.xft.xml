@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<Template Originator   = "Piotr Zurek"
+          Created      = "21/07/2009"
+          LastModified = "21/07/2009">
+		
+	<!-- Template Header -->
+	<TemplateConfiguration>
+		<_Name>Gtk# 2.0 Project</_Name>
+		<_Category>F#</_Category>
+		<Icon>md-project-gui|res:csharp-icon-32.png</Icon>
+		<LanguageName>F#</LanguageName>
+		<_Description>Creates a Gtk# 2.0 project.</_Description>
+	</TemplateConfiguration>
+	
+	<!-- Actions -->
+	<Actions>
+		<Open filename = "Program.fs"/>
+	</Actions>
+	
+	<!-- Template Content -->
+	<Combine name = "${ProjectName}" directory = ".">
+		<Options>
+			<StartupProject>${ProjectName}</StartupProject>
+		</Options>
+		
+		<Project name = "${ProjectName}" directory = ".">
+			<Options/>
+			
+			<References>
+				<Reference type="Gac" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+				<Reference type="Gac" SpecificVersion="false" refto="gtk-sharp,   Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+				<Reference type="Gac" SpecificVersion="false" refto="gdk-sharp,   Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+				<Reference type="Gac" SpecificVersion="false" refto="glib-sharp,  Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+				<Reference type="Gac" SpecificVersion="false" refto="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+				<Reference type="Gac" SpecificVersion="false" refto="atk-sharp,   Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+			</References>
+		
+			<Files>
+				<File name="Program.cs" AddStandardHeader="False">
+<![CDATA[
+open System
+open Gtk
+
+Application.Init ();
+
+let win = new Window ();
+win.Show ();
+
+Application.Run ();
+]]>
+				</File>
+			</Files>
+		</Project>
+	</Combine>
+</Template>
