@@ -53,6 +53,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Project\" />
+    <Folder Include="Templates\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -65,5 +66,9 @@
   </ProjectExtensions>
   <ItemGroup>
     <None Include="FSharpBinding.addin.xml" />
+    <None Include="Templates\EmptyFSharpFile.xft.xml" />
+    <None Include="Templates\EmptyFSharpSignatureFile.xft.xml" />
+    <None Include="Templates\EmprtyFSharpProject.xft.xml" />
+    <None Include="Templates\GtkSharpProject.xft.xml" />
   </ItemGroup>
 </Project>
