@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
@@ -63,8 +62,8 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Project\" />
-    <Folder Include="Templates\" />
-    <Folder Include="Icons\" />
+    <Folder Include="templates\" />
+    <Folder Include="icons\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>
@@ -76,21 +75,21 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <EmbeddedResource Include="Icons\fsharp-file-16.png" />
-    <EmbeddedResource Include="Icons\fsharp-project-16.png" />
     <EmbeddedResource Include="FSharpBinding.addin.xml" />
-    <EmbeddedResource Include="Templates\EmptyFSharpFile.xft.xml" />
-    <EmbeddedResource Include="Templates\EmptyFSharpSignatureFile.xft.xml" />
-    <EmbeddedResource Include="Templates\EmprtyFSharpProject.xft.xml" />
-    <EmbeddedResource Include="Templates\GtkSharpProject.xft.xml" />
-    <EmbeddedResource Include="Icons\fsharp-project-32.png" />
-    <EmbeddedResource Include="Icons\fsharp-project-console-32.png" />
-    <EmbeddedResource Include="Icons\fsharp-project-gui-32.png" />
-    <EmbeddedResource Include="Icons\fsharp-project-library-32.png" />
-    <EmbeddedResource Include="Icons\fsharp-signature-16.png" />
+    <EmbeddedResource Include="templates\EmptyFSharpFile.xft.xml" />
+    <EmbeddedResource Include="templates\EmptyFSharpSignatureFile.xft.xml" />
+    <EmbeddedResource Include="templates\EmprtyFSharpProject.xft.xml" />
+    <EmbeddedResource Include="templates\GtkSharpProject.xft.xml" />
     <EmbeddedResource Include="md1format.xml" />
-    <EmbeddedResource Include="Icons\F#.FileIcon" />
-    <EmbeddedResource Include="Icons\F#.ProjectIcon" />
-    <EmbeddedResource Include="Icons\F#S.FileIcon" />
+    <EmbeddedResource Include="icons\fsharp-file-16.png" />
+    <EmbeddedResource Include="icons\fsharp-project-16.png" />
+    <EmbeddedResource Include="icons\fsharp-project-32.png" />
+    <EmbeddedResource Include="icons\fsharp-project-console-32.png" />
+    <EmbeddedResource Include="icons\fsharp-project-gui-32.png" />
+    <EmbeddedResource Include="icons\fsharp-project-library-32.png" />
+    <EmbeddedResource Include="icons\fsharp-signature-16.png" />
+    <EmbeddedResource Include="icons\F#.FileIcon" />
+    <EmbeddedResource Include="icons\F#.ProjectIcon" />
+    <EmbeddedResource Include="icons\F#S.FileIcon" />
   </ItemGroup>
 </Project>
