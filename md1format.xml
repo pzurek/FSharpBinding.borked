@@ -1,0 +1,7 @@
+<SerializationMap>
+	<DataItem class = "FSharpBinding.CSharpCompilerParameters">
+		<ItemProperty member="warninglevel" name = "warninglevel"/>
+		<ItemProperty member="noWarnings" name="nowarn" defaultValue=""/>
+		<ItemProperty member="definesymbols" name="definesymbols" defaultValue="" />
+	</DataItem>
+</SerializationMap>
