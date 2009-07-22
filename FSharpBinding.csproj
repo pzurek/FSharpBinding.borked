@@ -42,6 +42,15 @@
       <Package>monodevelop</Package>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="MonoDevelop.Ide, Version=2.0.0.0, Culture=neutral">
+      <Package>monodevelop</Package>
+    </Reference>
+    <Reference Include="MonoDevelop.Projects.Gui, Version=2.0.0.0, Culture=neutral">
+      <Package>monodevelop</Package>
+    </Reference>
+    <Reference Include="MonoDevelop.Core.Gui, Version=2.0.0.0, Culture=neutral">
+      <Package>monodevelop</Package>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FSharpLanguageBinding.cs" />
