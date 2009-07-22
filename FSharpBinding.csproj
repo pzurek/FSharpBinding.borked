@@ -66,14 +66,21 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <None Include="Icons\fsharp-file-16.png" />
-    <None Include="Icons\fsharp-project-16.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <EmbeddedResource Include="Icons\fsharp-file-16.png" />
+    <EmbeddedResource Include="Icons\fsharp-project-16.png" />
     <EmbeddedResource Include="FSharpBinding.addin.xml" />
     <EmbeddedResource Include="Templates\EmptyFSharpFile.xft.xml" />
     <EmbeddedResource Include="Templates\EmptyFSharpSignatureFile.xft.xml" />
     <EmbeddedResource Include="Templates\EmprtyFSharpProject.xft.xml" />
     <EmbeddedResource Include="Templates\GtkSharpProject.xft.xml" />
+    <EmbeddedResource Include="Icons\fsharp-project-32.png" />
+    <EmbeddedResource Include="Icons\fsharp-project-console-32.png" />
+    <EmbeddedResource Include="Icons\fsharp-project-gui-32.png" />
+    <EmbeddedResource Include="Icons\fsharp-project-library-32.png" />
+    <EmbeddedResource Include="Icons\fsharp-signature-16.png" />
+    <EmbeddedResource Include="md1format.xml" />
+    <EmbeddedResource Include="Icons\F#.FileIcon" />
+    <EmbeddedResource Include="Icons\F#.ProjectIcon" />
+    <EmbeddedResource Include="Icons\F#S.FileIcon" />
   </ItemGroup>
 </Project>
