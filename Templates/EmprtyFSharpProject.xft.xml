@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <Template originator   = "Piotr Zurek"
           created      = "21/07/2009"
-          lastModified = "21/07/2009">
+          lastModified = "23/07/2009">
           
 	<TemplateConfiguration>
 		<_Name>Empty Project</_Name>
 		<_Category>F#</_Category>
-		<Icon>md-project|res:csharp-icon-32.png</Icon>
+		<Icon>res:fsharp-project-32.png</Icon>
 		<LanguageName>F#</LanguageName>
 		<_Description>Creates an empty F# project.</_Description>
 	</TemplateConfiguration>
