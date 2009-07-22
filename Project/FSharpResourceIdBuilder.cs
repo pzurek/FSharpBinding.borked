@@ -42,7 +42,7 @@ namespace FSharpBinding
 	{
 		public override string GetDefaultResourceId (ProjectFile pf)
 		{
-			if (String.IsNullOrEmpty (pf.DependsOn) || !File.Exists (pf.DependsOn) || Path.GetExtension (pf.DependsOn).ToLower () != ".cs")
+			if (String.IsNullOrEmpty (pf.DependsOn) || !File.Exists (pf.DependsOn) || Path.GetExtension (pf.DependsOn).ToLower () != ".fs")
 				return base.GetDefaultResourceId (pf);
 
 			string ns = null;
