@@ -31,7 +31,6 @@ using System.Text.RegularExpressions;
 
 using MonoDevelop.Core;
 using MonoDevelop.Projects;
-//using MonoDevelop.Core.
 
 namespace FSharpBinding
 {
