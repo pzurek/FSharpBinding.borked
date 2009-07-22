@@ -10,12 +10,27 @@
 	
 	<Dependencies>
 		<Addin id="Core" version="2.0"/>
-		<Addin id="Core.Gui" version="2.0"/>
 		<Addin id="Projects" version="2.0"/>
-		<Addin id="Projects.Gui" version="2.0"/>
-		<Addin id="Ide" version="2.0"/>
 	</Dependencies>
-	
+
+	<Extension path = "/MonoDevelop/ProjectModel/MSBuildItemTypes">
+		<DotNetProject 
+			language="F#" 
+			extension="fsproj" 
+			guid="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+			/>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/Ide/FileTemplates">
+		<FileTemplate id = "FSharpEmptyFile" resource = "EmptyFSharpFile.xft.xml"/>
+		<FileTemplate id = "FSharpEmptySignatureFile" resource = "EmptyFSharpSignatureFile.xft.xml"/>
+	</Extension>
+
+	<Extension path = "/MonoDevelop/Ide/ProjectTemplates">
+		<ProjectTemplate id = "FSharpEmptyProject" resource = "EmptyFSharpProject.xpt.xml"/>
+		<ProjectTemplate id = "FSharpGtkSharpProject" resource = "GtkSharpProject.xpt.xml"/>
+	</Extension>
+
 	<Extension path = "/MonoDevelop/Ide/FileFilters">
 		<FileFilter id = "FSharp"
 		            insertbefore="AllFiles"
@@ -32,17 +47,31 @@
 		                 supportedextensions = ".fs,.fsi,"
 		                 class = "FSharpBinding.FSharpLanguageBinding" />
 	</Extension>
+
+	<Extension path = "/MonoDevelop/ProjectModel/Gui/Icons">
+		<Icon language = "F#" icon = "res:F#.ProjectIcon"/>
+	</Extension>
 	
 	<Extension path = "/MonoDevelop/ProjectModel/SerializableClasses">
 		<DataType class = "FSharpBinding.FSharpCompilerParameters" />
 		<DataType class = "FSharpBinding.FSharpProjectParameters" />
 	</Extension>
 
+	<Extension path = "/MonoDevelop/ProjectModel/MD1SerializationMaps">
+		<SerializationMap resource="md1format.xml" />
+	</Extension>
+
+
+	<Extension path = "/MonoDevelop/Core/StockIcons">
+		<StockIcon stockid = "md-fsharp-file" resource = "F#.FileIcon" />
+		<StockIcon stockid = "md-fsharp-file" resource = "F#S.FileIcon" />
+	</Extension>
+
 	<Extension path = "/MonoDevelop/Core/MimeTypes">
 		<MimeType id="text/x-fsharp" _description="F# implementation file" icon="md-fsharp-file" isText="true">
 			<File pattern="*.fs" />
 		</MimeType>
-		<MimeType id="text/x-fsharp" _description="F# signature file" icon="md-fsharp-file" isText="true">
+		<MimeType id="text/x-fsharp" _description="F# signature file" icon="md-fsharp-signature" isText="true">
 			<File pattern="*.fsi" />
 		</MimeType>
 	</Extension>
