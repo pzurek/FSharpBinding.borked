@@ -141,7 +141,10 @@ namespace FSharpBinding
 								break;
 							}
 						}
-					} else if (sr.Peek () == '/') {
+					}
+				else if (sr.Peek () == '/') {
+					sr.Read ();
+					if (sr.Peek () == '/')
 						//Single line comment, skip the rest of the line
 						sr.ReadLine ();
 						continue;
