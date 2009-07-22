@@ -42,21 +42,16 @@ namespace FSharpBinding
 	public class FSharpLanguageBinding : IDotNetLanguageBinding
 	{
 		public string Language {
-			get {
-				return "F#";
-			}
+			get { return "F#"; }
 		}
 		
 		public string ProjectStockIcon {
-			get {
-				return "md-fsharp-project";
-			}
+			get { return "md-fsharp-project"; }
 		}
 		
 		//HACK: this is just for the moment to get something to work.
 		//F# source code files can have other extensions - fs, fsi, fsx
-		public bool IsSourceCodeFile (string fileName)
-		{
+		public bool IsSourceCodeFile (string fileName) {
 			return string.Compare (Path.GetExtension (fileName), ".fs", true) == 0;
 		}
 		

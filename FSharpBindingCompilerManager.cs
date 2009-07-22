@@ -44,7 +44,6 @@ namespace FSharpBinding
 			sb.Append ('"');
 			sb.AppendLine ();
 		}
-
 		
 		public static BuildResult Compile (ProjectItemCollection projectItems,
 		                                   DotNetProjectConfiguration configuration,
