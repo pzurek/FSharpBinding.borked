@@ -49,6 +49,7 @@
     <Compile Include="FSharpBindingCompilerManager.cs" />
     <Compile Include="Project\FSharpCompilerParameters.cs" />
     <Compile Include="Project\FSharpProjectParameters.cs" />
+    <Compile Include="Project\FSharpResourceIdBuilder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
