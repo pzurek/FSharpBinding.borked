@@ -1,25 +1,27 @@
 <Addin id          = "FSharpBinding"
        namespace   = "MonoDevelop"
-       name        = "FSharp Language Binding"
+       name        = "F# Language Binding"
        author      = "Piotr Zurek"
        copyright   = "MIT X11"
        url         = "http://wiki.github.com/pzurek/FSharpBinding"
-       description = "FSharp Language Binding"
+       description = "F# language binding for MonoDevelop"
 	   category    = "Language bindings"
        version     = "2.0">
 	
 	<Dependencies>
 		<Addin id="Core" version="2.0"/>
 		<Addin id="Projects" version="2.0"/>
+		<Addin id="Ide" version="2.0"/>
 	</Dependencies>
 
 	<Extension path = "/MonoDevelop/ProjectModel/MSBuildItemTypes">
-		<DotNetProject 
-			language="F#" 
-			extension="fsproj" 
-			guid="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-			/>
-	</Extension>
+		<DotNetProject 	language = "F#" 
+						extension="fsproj" 
+						guid="{0A207D5A-8CFF-496F-A29D-DC6B5946C696}"
+						import="$(MSBuildBinPath)\Microsoft.FSharp.targets"
+						resourceHandler="FSharpBinding.FSharpResourceIdBuilder"
+		/>
+        </Extension>
 
 	<Extension path = "/MonoDevelop/Ide/FileTemplates">
 		<FileTemplate id = "FSharpEmptyFile" resource = "EmptyFSharpFile.xft.xml"/>
@@ -44,7 +46,7 @@
 
 	<Extension path = "/MonoDevelop/ProjectModel/LanguageBindings">
 		<LanguageBinding id    = "FSharp"
-		                 supportedextensions = ".fs,.fsi,"
+		                 supportedextensions = ".fs, .fsi"
 		                 class = "FSharpBinding.FSharpLanguageBinding" />
 	</Extension>
 
@@ -61,10 +63,9 @@
 		<SerializationMap resource="md1format.xml" />
 	</Extension>
 
-
 	<Extension path = "/MonoDevelop/Core/StockIcons">
 		<StockIcon stockid = "md-fsharp-file" resource = "F#.FileIcon" />
-		<StockIcon stockid = "md-fsharp-file" resource = "F#S.FileIcon" />
+		<StockIcon stockid = "md-fsharp-signature" resource = "F#S.FileIcon" />
 	</Extension>
 
 	<Extension path = "/MonoDevelop/Core/MimeTypes">
